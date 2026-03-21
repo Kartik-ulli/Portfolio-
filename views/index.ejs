@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Macondo&family=Outfit:wght@100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+     
+<link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="">main</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#firstdiv">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skill">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">FAQs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center" style="gap: 10px;">
+                <span id="weather-temp" style="color: white;"></span>
+                <img id="weather-icon" src="" alt="Weather icon" style="width: 30px; height: 30px;">
+                <a href="https://www.accuweather.com/en/in/bengaluru/204108/weather-forecast/204108?city=bengaluru" style="color: white; text-decoration: none;" id="weather-link">Weather</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="firstdiv" id="firstdiv">
+        <div class="container">
+        <h1>Kartik ulli</h1>
+        <p>A web developer</p>
+        
+    </div>
+    <div class="seconddiv" id="about">
+        <img src="./images/my photo.jpeg" alt="" class="my">
+        
+    </div>
+    <div class="seconddiv">
+        <p id="hello">Hello</p>
+    </div>
+    <div>
+        <p class="ditail">I am a full-stack web developer. I'm an engineering <br> student studying computer science and engineering.</p>
+    </div>
+    <div class="seconddiv" id="skill">
+        <h1 class="yellow">My skill </h1>
+    </div>
+    <div class="skilldiv">
+        <img src="./images/images.png" class="skill" alt="c programming">
+        <p class="ditail" id="skill">"Proficient in C programming, with over 170 problems solved on Torii Minds, demonstrating strong problem‑solving ability."</p>
+    </div>
+    <div class="skilldiv">
+        <img src="./images/Features_Of_Python_1_f4ccd6d9f7.jpg" class="skill" width="310px" alt="Phython">
+        <p class="ditail" id="skill">"I am currently learning Python programming and have already built a solid foundation of knowledge."</p>
+    </div>
+    <div class="skilldiv">
+        <img src="./images/frontend-skills.jpg" class="skill" width="310px" alt="front end develoment">
+        <p class="ditail" id="skill">"I am now a front-end developer with strong expertise in HTML, CSS, Bootstrap, and Canva design editing."</p>
+    </div>
+    <div class="seconddiv" id="contact">
+        <h1 class="yellow">Get in Touch </h1>
+    </div>
+    <div class="contact">
+
+    <a href="mailto:kartiksagar20070807@gmail.com"><button class="but">CONTACT ME</button></a>
+    </div>
+    
+    <footer>
+        <nav>
+        <a href="https://www.linkedin.com/in/Kartik-ulli/">Linkedin</a>
+        <a href="https://x.com/Kartikulli">Twitter</a>
+        <a href="https://www.instagram.com/Kartik_sagar_07">Instagram</a>
+        
+        <p> ©Made with ❤️ by Kartik</p>
+        </nav>
+    </footer>
+    <script>
+            if (navigator.geolocation) {
+       navigator.geolocation.getCurrentPosition(position => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        console.log(`Latitude: ${lat}, Longitude: ${lon}`);
+        
+        // Send lat and lon to server
+        fetch('/weather', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ lat, lon })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                console.error(data.error);
+            } else {
+                document.getElementById('weather-temp').textContent = `${data.temp}°C`;
+                document.getElementById('weather-icon').src = `http://openweathermap.org/img/w/${data.icon}.png`;
+                document.getElementById('weather-link').textContent = `${data.city}: ${data.description}`;
+            }
+        })
+        .catch(error => console.error('Error sending location:', error));
+                });
+            } else {
+                console.log("Geolocation not supported");
+        }
+    </script>
+        
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+
+</body>
+</html>
