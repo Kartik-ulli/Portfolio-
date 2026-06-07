@@ -41,8 +41,10 @@ p,.yellow{
     border-radius: 50%;
     margin-top: 50px;
     display: block;
+     animation: motionup 2s ease-out;
     
 }
+
 .ditail{
 
     color: black;
@@ -104,8 +106,73 @@ footer p{
 #table{
     background-color: white;
     
+
+}
+/* .practice{
+    height: 100px;
+    background-color: black;
+    width: 50%;
+    justify-content: center;
+    margin-left: 25%;
+    animation: motionup 1s ease-out;
+     animation-timeline: view();
+} */
+.firstdiv h1.show{
+    animation: motionside 2s ease-out;
+    
+}
+.firstdiv p.show{
+    animation: motionsideback 2s ease-out;
+}
+#hello, .seconddiv p .show{
+    animation: motionside 2s ease-out;
+}
+.skill.show{
+    animation: motionside 2s ease-out;
+}
+.table.show{
+    animation: motionup 2s ease-out;
+}
+.but.show{
+    animation: motionup 2s ease-out;
+}
+@keyframes motionup {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+}
+@keyframes motionside {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
+}
+@keyframes motionsideback {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
 }
 @media(max-width: 600px){
+   
+
+    
     .firstdiv{
         height: 400px;
     }
