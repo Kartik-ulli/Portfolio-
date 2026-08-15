@@ -10,7 +10,9 @@ import axios from 'axios';
  app.get('/', (req, res) => {
      res.render('index.ejs');
  });
-
+ app.get('/api/health', async (req, res) => {
+    res.json({ status: 'online', provider: 'Gorq', model:GORQ_MODELS });
+ });
  app.post('/weather', async (req, res) => {
      const { lat, lon } = req.body;
      try {
