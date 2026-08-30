@@ -1,5 +1,6 @@
 *{
     margin: 0px;
+    box-sizing: border-box;
 }
 .firstdiv{
     background-image: url(/images/background.jpg);
@@ -70,6 +71,95 @@ p,.yellow{
 }
 .skilldiv p{
     margin-top: 50px;
+}
+.learning-section {
+    padding: 60px 0 20px;
+    background: linear-gradient(180deg, #fff9f1 0%, #ffffff 100%);
+}
+.learning-intro {
+    width: min(900px, 90%);
+    margin: 25px auto 40px;
+    color: #3d3d3d;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: center;
+}
+.learning-grid {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    gap: 24px;
+}
+.learning-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.learning-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+.learning-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+.learning-body {
+    padding: 20px 18px 18px;
+}
+.learning-body h3 {
+    margin: 0 0 14px;
+    font-size: 1.5rem;
+    color: #1d1d1d;
+    font-weight: 700;
+}
+.learning-body ul {
+    margin: 0;
+    padding-left: 18px;
+    color: #494949;
+    line-height: 1.8;
+    font-size: 0.98rem;
+}
+.projects-highlight {
+    width: min(1000px, 90%);
+    margin: 60px auto 0;
+    background: #111827;
+    border-radius: 24px;
+    padding: 32px 24px;
+    text-align: center;
+    color: #fff;
+}
+.projects-highlight h2 {
+    margin-bottom: 14px;
+    color: #ffd18a;
+    font-size: clamp(1.8rem, 2vw, 2.4rem);
+}
+.projects-highlight p {
+    margin: 0;
+    color: #f3f4f6;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+.project-tags span {
+    background: rgba(255, 209, 138, 0.14);
+    color: #ffd18a;
+    border: 1px solid rgba(255, 209, 138, 0.28);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
 }
 .contact{
     display: flex;
@@ -171,8 +261,8 @@ footer p{
 }
 @media(max-width: 600px){
    
-
-    
+ 
+     
     .firstdiv{
         height: 400px;
     }
@@ -200,5 +290,8 @@ footer p{
         display: block;
         width: 100%;
         margin-left: 0.1px;
+    }
+    .learning-grid {
+        grid-template-columns: 1fr;
     }
 }
